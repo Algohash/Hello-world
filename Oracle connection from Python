@@ -1,0 +1,18 @@
+Install the cx_Oracle package
+pip install cx_Oracle
+
+If there is an error
+    cx_Oracle.c:10:10: fatal error: 'oci.h' file not found
+    #include <oci.h>
+             ^
+    1 error generated.
+    error: command 'clang' failed with exit status 1
+
+You might have to download Instant Client SDK package from Oracle (http://www.oracle.com/technetwork/topics/intel-macsoft-096467.html) and copy the sdk directory into $ORACLE_HOME
+
+Also make sure
+export ORACLE_HOME = /oracle/directory
+export LD_LIBRARY_PATH = $ORACLE_HOME
+EXPORT LYLD_LIBRARY_PATH = $ORACLE_HOME/lib
+
+Once this is done, 
