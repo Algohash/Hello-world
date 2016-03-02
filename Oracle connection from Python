@@ -15,4 +15,14 @@ export ORACLE_HOME = /oracle/directory
 export LD_LIBRARY_PATH = $ORACLE_HOME
 EXPORT LYLD_LIBRARY_PATH = $ORACLE_HOME/lib
 
-Once this is done, 
+Once this is done, you can make the connection and query the DB.
+import cx_Oracle as ora
+oConn = ora.connect('uid/pwd@server:port/db')
+
+cur=oConn.cursor()
+sql="select * from table"
+cur.execute(sql)
+cur.fetchall()
+
+If you want to have it read as a data frame
+data_df = pd.read_sql(sql, oConn)
